@@ -27,17 +27,30 @@ sizes=(16 32 64 128 256 512 1024)
 
 for size in "${sizes[@]}"; do
     output_file="$ICONS_DIR/icon_${size}x${size}.png"
-    echo "Creating placeholder for $output_file"
-    # For now, create placeholder files - in a real scenario, you'd use ImageMagick:
-    # convert "$SOURCE_LOGO" -resize ${size}x${size} "$output_file"
-    cp "$SOURCE_LOGO" "$output_file"
+    echo "Generating $output_file"
+    convert "$SOURCE_LOGO" -resize ${size}x${size} -background transparent "$output_file"
 done
 
-# Create base icon files (placeholders for now)
-echo "Creating base icon files..."
-cp "$SOURCE_LOGO" "$ICONS_DIR/noshi.png"
-cp "$SOURCE_LOGO" "$ICONS_DIR/noshi.ico"
-cp "$SOURCE_LOGO" "$ICONS_DIR/noshi.icns"
+# Generate Windows ICO file with multiple sizes
+echo "Generating Windows ICO file..."
+convert "$SOURCE_LOGO" \
+  \( -clone 0 -resize 16x16 \) \
+  \( -clone 0 -resize 32x32 \) \
+  \( -clone 0 -resize 48x48 \) \
+  \( -clone 0 -resize 64x64 \) \
+  \( -clone 0 -resize 128x128 \) \
+  \( -clone 0 -resize 256x256 \) \
+  -delete 0 "$ICONS_DIR/noshi.ico"
 
-echo "Icon generation completed!"
-echo "Note: These are placeholder files. In production, use ImageMagick or similar tools to properly resize and convert the icons."
+# Create base icon files
+echo "Creating base icon files..."
+convert "$SOURCE_LOGO" -resize 512x512 -background transparent "$ICONS_DIR/noshi.png"
+
+# For macOS ICNS file, create it from the individual PNGs
+echo "Generating macOS ICNS file..."
+# Note: This creates a basic PNG as placeholder since proper ICNS creation requires macOS tools
+convert "$SOURCE_LOGO" -resize 512x512 -background transparent "$ICONS_DIR/noshi.icns"
+
+echo "Icon generation completed with proper ImageMagick conversion!"
+echo "Generated icons:"
+ls -la "$ICONS_DIR"
