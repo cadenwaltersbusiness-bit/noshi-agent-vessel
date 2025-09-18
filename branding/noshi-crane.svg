@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Noshi Crane Logo - Clean Origami Crane Design based on provided image -->
+  <g fill="none" stroke="#000000" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main crane body outline -->
+    <path d="M200 500 L350 350 L500 300 L650 350 L800 500"/>
+    <!-- Left wing -->
+    <path d="M200 500 L300 400 L350 350 L400 400 L500 300"/>
+    <!-- Right wing -->
+    <path d="M500 300 L600 400 L650 350 L700 400 L800 500"/>
+    <!-- Neck extending upward -->
+    <path d="M200 500 L150 400 L130 300 L140 200"/>
+    <!-- Tail extending backward -->
+    <path d="M800 500 L850 550 L900 600"/>
+    <!-- Central body fold -->
+    <path d="M350 350 L500 450 L650 350"/>
+    <!-- Wing internal folds -->
+    <path d="M300 400 L400 350"/>
+    <path d="M600 350 L700 400"/>
+    <!-- Beak detail -->
+    <path d="M140 200 L120 180"/>
+  </g>
+</svg>

@@ -217,7 +217,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(async () => {
-    electronApp.setAppUserModelId('com.electron');
+    electronApp.setAppUserModelId('com.noshi.agentvessel');
 
     // Default open or close DevTools by F12 in development
     // and ignore CommandOrControl + R in production.

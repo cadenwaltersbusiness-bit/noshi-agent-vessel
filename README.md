@@ -297,3 +297,21 @@ If you find our paper and code useful in your research, please consider giving a
   year={2025}
 }
 ```
+
+### macOS Quickstart
+
+```bash
+# prerequisites: macOS 13+, Xcode Command Line Tools, Node 20/22
+xcode-select --install 2>/dev/null || true
+corepack enable && corepack prepare pnpm@latest --activate
+
+git clone https://github.com/cadenwaltersbusiness-bit/noshi-agent-vessel.git
+cd noshi-agent-vessel
+pnpm install
+
+# set the Electron app path (Copilot discovered it in this PR; update if different)
+# common options: ./apps/ui-tars  ./apps/desktop  ./app
+pnpm --filter ./apps/ui-tars rebuild
+pnpm --filter ./apps/ui-tars dev
+```
+```
