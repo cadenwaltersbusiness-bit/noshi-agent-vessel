@@ -57,17 +57,17 @@ export default class MenuBuilder {
 
   buildDarwinTemplate(): MenuItemConstructorOptions[] {
     const subMenuAbout: DarwinMenuItemConstructorOptions = {
-      label: 'UI-TARS Desktop',
+      label: 'Natural Action Agent Vessel',
       submenu: [
         {
-          label: 'About UI-TARS Desktop',
+          label: 'About Natural Action Agent Vessel',
           selector: 'orderFrontStandardAboutPanel:',
         },
         { type: 'separator' },
         { label: 'Services', submenu: [] },
         { type: 'separator' },
         {
-          label: 'Hide UI-TARS Desktop',
+          label: 'Hide Natural Action Agent Vessel',
           accelerator: 'Command+H',
           selector: 'hide:',
         },
@@ -193,6 +193,14 @@ export default class MenuBuilder {
         },
         { type: 'separator' },
         {
+          label: 'Open-Source Notices',
+          click: () => {
+            this.browserWindow.webContents.executeJavaScript(`
+              window.location.hash = '#/notices';
+            `);
+          },
+        },
+        {
           label: 'Toggle Developer Tools',
           click: () => {
             this.browserWindow.webContents.toggleDevTools();
@@ -288,6 +296,14 @@ export default class MenuBuilder {
                 },
               },
             ],
+          },
+          {
+            label: 'Open-Source Notices',
+            click: () => {
+              this.browserWindow.webContents.executeJavaScript(`
+                window.location.hash = '#/notices';
+              `);
+            },
           },
           {
             label: 'Toggle &Developer Tools',

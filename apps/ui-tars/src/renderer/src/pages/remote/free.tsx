@@ -327,7 +327,7 @@ const RemoteOperator = () => {
       <NavHeader
         title={state.operator}
         onBack={handleBack}
-        docUrl="https://github.com/bytedance/UI-TARS-desktop/"
+        docUrl="https://github.com/cadenwaltersbusiness-bit/noshi-agent-vessel/"
       >
         <CountDown
           operator={state.operator}

@@ -152,8 +152,9 @@ console.log('ignorePattern', ignorePattern);
 
 const config: ForgeConfig = {
   packagerConfig: {
-    name: 'UI TARS',
-    icon: 'resources/icon',
+    name: 'Natural Action Agent Vessel',
+    appBundleId: 'com.noshi.agentvessel',
+    icon: 'resources/icons/noshi',
     extraResource: ['./resources/app-update.yml'],
     asar: {
       unpack,
@@ -166,7 +167,7 @@ const config: ForgeConfig = {
         ? noopAfterCopy
         : setLanguages([...keepLanguages.values()]),
     ],
-    executableName: 'UI-TARS',
+    executableName: 'Natural Action Agent Vessel',
     ...(enableOsxSign
       ? {
           osxSign: {
@@ -188,7 +189,10 @@ const config: ForgeConfig = {
     {
       name: '@electron-forge/publisher-github',
       config: {
-        repository: { owner: 'bytedance', name: 'ui-tars-desktop' },
+        repository: {
+          owner: 'cadenwaltersbusiness-bit',
+          name: 'noshi-agent-vessel',
+        },
         draft: true,
         force: true,
         generateReleaseNotes: true,
@@ -199,14 +203,14 @@ const config: ForgeConfig = {
     new MakerZIP({}, ['darwin']),
     new MakerSquirrel({
       // CamelCase version without spaces
-      name: 'UiTars',
-      setupIcon: 'resources/icon.ico',
+      name: 'NoshiAgentVessel',
+      setupIcon: 'resources/icons/noshi.ico',
     }),
     // https://github.com/electron/forge/issues/3712
     new MakerDMG({
       overwrite: true,
       background: 'static/dmg-background.png',
-      // icon: 'static/dmg-icon.icns',
+      icon: 'resources/icons/noshi.icns',
       iconSize: 160,
       format: 'UDZO',
       additionalDMGOptions: { window: { size: { width: 660, height: 400 } } },
